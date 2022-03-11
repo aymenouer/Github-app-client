@@ -5,7 +5,7 @@ import Pages from './pages/index.js';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { ToastContainer } from 'react-toastify';
 const client = new ApolloClient({
-  uri: 'https://git-app-server.herokuapp.com/',
+  uri: 'http://localhost:4000/',
   cache: new InMemoryCache(),
 });
 
