@@ -4,10 +4,7 @@ import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import logo from '../assets/github.svg';
 
-/**
- * Header renders the top navigation
- * for this particular tutorial level, it only holds the home button
- */
+
 const Header = ({ children }) => {
   return (
     <HeaderBar>

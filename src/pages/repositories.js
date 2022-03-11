@@ -1,41 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import RepoCard from '../containers/repo-card';
 import { Layout, QueryResult } from '../components';
+import { Button, colors, IconBook } from '../styles';
 
-/** TRACKS gql query to retreive all tracks */
+/** REPOSITORIES gql query to retreive all REPOSITORIES with loadpage */
 export const REPOSITORIES = gql`
-query getRepositoriesForHome {
-    repositoriesForHome {   
+query getRepositoriesForHome($loadpage: Int!) {
+  repositoriesForHome(loadpage: $loadpage) {
+    id
+    name
+    owner {
       id
-      name
-      html_url
-      description
-      stargazers_count
-      owner {
-        id
-        login
-        avatar_url
-      }
+      login
+      avatar_url
     }
+    html_url
+    description
+    stargazers_count
   }
+}
   
 `;
 
-/**
- * Tracks Page is the Catstronauts home page.
- * We display a grid of tracks fetched with useQuery with the TRACKS query
- */
 const Repositories = () => {
-  const { loading, error, data } = useQuery(REPOSITORIES);
-
+  const [loadpage,setLoadpage] = useState(6);
+  const { loading, error, data } = useQuery(REPOSITORIES,{
+    variables: { loadpage },
+  });
+  const [repoLiked,setRepoLiked]=useState(JSON.parse(localStorage.getItem("Rated")) || []);
   return (
     <Layout grid>
+  
        <QueryResult error={error} loading={loading} data={data}>
         {data?.repositoriesForHome?.map((repo, index) => (
-          <RepoCard key={repo.id} repo={repo} />
+          <RepoCard setRepoLiked={setRepoLiked} repoLiked={repoLiked} key={repo.id} repo={repo} />
         ))}
       </QueryResult>
+      <Button onClick={()=>setLoadpage(loadpage+6)}     icon={<IconBook width="20px" />}
+                color={colors.pink.base}
+                size="large" >  Show More</Button>
     </Layout>
   );
 };

@@ -3,10 +3,7 @@ import { Header, Footer } from '../components';
 import styled from '@emotion/styled';
 import { widths, unit } from '../styles';
 
-/**
- * Layout renders the full page content:
- * with header, Page container and footer
- */
+
 const Layout = ({ fullWidth, children, grid }) => {
   return (
     <>
