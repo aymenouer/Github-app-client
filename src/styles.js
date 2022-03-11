@@ -2,7 +2,7 @@ import React from 'react';
 import '@apollo/space-kit/reset.css';
 import { colors as SKColors } from '@apollo/space-kit/colors';
 import { Global } from '@emotion/core';
-
+import 'react-toastify/dist/ReactToastify.css';
 const breakpoints = [480, 768, 992, 1200];
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
@@ -78,3 +78,4 @@ export { IconYoutube } from '@apollo/space-kit/icons/IconYoutube';
 export { IconArrowRight } from '@apollo/space-kit/icons/IconArrowRight';
 export { IconDoubleArrowRight } from '@apollo/space-kit/icons/IconDoubleArrowRight';
 export { Button } from '@apollo/space-kit/Button';
+export { Select } from "@apollo/space-kit/Select";

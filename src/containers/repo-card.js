@@ -1,29 +1,30 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { colors, mq } from "../styles";
-import ReactStars from "react-rating-stars-component";
 import logo from "../assets/repo.png";
+import { toast } from "react-toastify";
+import Rating from "@mui/material/Rating";
 
+const RepoCard = ({ setRepoLiked, repoLiked, repo }) => {
+  const { name, html_url, language, owner, description, stargazers_count, id } =
+    repo;
+  const [rate, setRate] = useState(
+    repoLiked.map((e) => e.id).includes(id)
+      ? repoLiked.find((element) => element.id === id).rate
+      : stargazers_count
+  );
+  const ratingChanged = (newrate, id) => {
+    let array = repoLiked;
 
-const RepoCard = ({ setRepoLiked,repoLiked,repo }) => {
-  const { name, html_url, owner, description, stargazers_count, id } = repo;
-  const [rate,setRate]=useState(repoLiked.map(e => e.id)
-  .includes(id) ?  repoLiked.find(element => element.id ===id ).rate :stargazers_count);
-const ratingChanged = (newrate,id)=>{
-  let array=repoLiked;
-
-  setRate(rate+newrate);
-  array.push({id,rate:rate+newrate});
-  setRepoLiked(array)
-  localStorage.setItem("Rated", JSON.stringify(repoLiked))
-}
-  
-
-
-
+    setRate(rate + newrate);
+    array.push({ id, rate: rate + newrate });
+    setRepoLiked(array);
+    localStorage.setItem("Rated", JSON.stringify(repoLiked));
+    toast.success("Rated");
+  };
 
   return (
-    <CardContainer >
+    <CardContainer>
       <CardContent>
         <CardImageContainer>
           <CardImage src={logo} alt={name} />
@@ -31,6 +32,7 @@ const ratingChanged = (newrate,id)=>{
         <CardBody>
           <CardTitle>{name || ""}</CardTitle>
           <CardDescription>{description || "No description"}</CardDescription>
+          <CardLanguage>Language : {language}</CardLanguage>
           <CardFooter>
             <OwnerImage src={owner.avatar_url} alt={owner.login} />
             <OwnerAndRepo>
@@ -38,18 +40,13 @@ const ratingChanged = (newrate,id)=>{
               <RepoStars>{rate} Star</RepoStars>
             </OwnerAndRepo>
           </CardFooter>
-          <ReactStars
-            count={1}
-            edit={!repoLiked.map(e => e.id)
-              .includes(id)}
-
-              value={repoLiked.map(e => e.id)
-                .includes(id) && 1}
-            onChange={(value)=>ratingChanged(value,id)}
-            size={24}
-            activeColor="goldenrod"
+          <Rating
+            readOnly={repoLiked.map((e) => e.id).includes(id)}
+            name="customized-10"
+            value={repoLiked.map((e) => e.id).includes(id) && 1}
+            max={1}
+            onChange={(event, value) => ratingChanged(value, id)}
           />
-          
         </CardBody>
       </CardContent>
     </CardContainer>
@@ -108,6 +105,13 @@ const CardDescription = styled.p({
   fontSize: "0.9em",
   lineHeight: "1em",
   fontWeight: 500,
+  color: colors.text,
+  flex: 1,
+});
+const CardLanguage = styled.p({
+  fontSize: "0.9em",
+  lineHeight: "1em",
+  fontWeight: 600,
   color: colors.text,
   flex: 1,
 });

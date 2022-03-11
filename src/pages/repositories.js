@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useQuery, gql } from '@apollo/client';
-import RepoCard from '../containers/repo-card';
-import { Layout, QueryResult } from '../components';
-import { Button, colors, IconBook } from '../styles';
-
+import React, { useState } from "react";
+import { useQuery, gql } from "@apollo/client";
+import RepoCard from "../containers/repo-card";
+import { Layout, QueryResult } from "../components";
+import { Button, colors, IconBook, Select } from "../styles";
+import Box from "@mui/material/Box";
 /** REPOSITORIES gql query to retreive all REPOSITORIES with loadpage */
 export const REPOSITORIES = gql`
-query getRepositoriesForHome($loadpage: Int!) {
-  repositoriesForHome(loadpage: $loadpage) {
+query RepositoriesForHome($loadpage: Int!, $language: String) {
+  repositoriesForHome(loadpage: $loadpage, language: $language) {
     id
     name
     owner {
@@ -17,30 +17,68 @@ query getRepositoriesForHome($loadpage: Int!) {
     }
     html_url
     description
+    language
     stargazers_count
   }
 }
-  
 `;
 
 const Repositories = () => {
-  const [loadpage,setLoadpage] = useState(6);
-  const { loading, error, data } = useQuery(REPOSITORIES,{
-    variables: { loadpage },
+  const [loadpage, setLoadpage] = useState(6);
+  const [language, setLanguage] = useState("");
+
+  const { loading, error, data } = useQuery(REPOSITORIES, {
+    variables: { loadpage, language },
   });
-  const [repoLiked,setRepoLiked]=useState(JSON.parse(localStorage.getItem("Rated")) || []);
+
+  const [repoLiked, setRepoLiked] = useState(
+    JSON.parse(localStorage.getItem("Rated")) || []
+  );
   return (
-    <Layout grid>
-  
-       <QueryResult error={error} loading={loading} data={data}>
-        {data?.repositoriesForHome?.map((repo, index) => (
-          <RepoCard setRepoLiked={setRepoLiked} repoLiked={repoLiked} key={repo.id} repo={repo} />
-        ))}
-      </QueryResult>
-      <Button onClick={()=>setLoadpage(loadpage+6)}     icon={<IconBook width="20px" />}
-                color={colors.pink.base}
-                size="large" >  Show More</Button>
-    </Layout>
+    <>
+      <Layout grid>
+        <Box style={{ marginRight: "20px", display:"flex" ,alignItems:"Center" }} width={800}>
+          
+        
+        
+            
+        </Box>
+        <Select
+          feel="raised"
+          onChange={(e) => setLanguage(e.currentTarget.value)}
+          renderTriggerNode={(selectedItem) => (
+            <>{selectedItem?.children ?? "select an langague"}</>
+          )}
+        >
+          <option>C</option>
+
+          <option>PHP</option>
+          <option>R</option>
+          <option>SQL</option>
+          <option>Java</option>
+          <option>JavaScript</option>
+        </Select>
+
+        <QueryResult error={error} loading={loading} data={data}>
+          {data?.repositoriesForHome?.map((repo, index) => (
+            <RepoCard
+              setRepoLiked={setRepoLiked}
+              repoLiked={repoLiked}
+              key={repo.id}
+              repo={repo}
+            />
+          ))}
+        </QueryResult>
+        <Button
+          onClick={() => setLoadpage(loadpage + 6)}
+          icon={<IconBook width="20px" />}
+          color={colors.pink.base}
+          size="large"
+        >
+          Show More
+        </Button>
+      </Layout>
+    </>
   );
 };
 
