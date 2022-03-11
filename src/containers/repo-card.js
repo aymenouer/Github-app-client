@@ -32,7 +32,7 @@ const RepoCard = ({ setRepoLiked, repoLiked, repo }) => {
         <CardBody>
           <CardTitle>{name || ""}</CardTitle>
           <CardDescription>{description || "No description"}</CardDescription>
-          <CardLanguage>Language : {language}</CardLanguage>
+          <CardLanguage>Language : {language  || "No language"}</CardLanguage>
           <CardFooter>
             <OwnerImage src={owner.avatar_url} alt={owner.login} />
             <OwnerAndRepo>

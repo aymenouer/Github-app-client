@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, widths } from '../styles';
+import { colors, IconStar, widths } from '../styles';
 import styled from '@emotion/styled';
 import { Link } from '@reach/router';
 import logo from '../assets/github.svg';
@@ -18,6 +18,20 @@ const Header = ({ children }) => {
               <Title>
                 <h3>Github</h3>
                 <div>discover trending repositories</div>
+              </Title>
+            </HomeButton>
+          </HomeLink>
+          <HomeLink to="/stars">
+            <HomeButton>
+              <LogoContainer>
+                <IconStar style={{  height: 60,
+  width: 60,
+  marginRight: 8, color:"#f1c40f"}} />
+           
+              </LogoContainer>
+              <Title>
+                <h3>Rate</h3>
+                <div>discover your rated repositories</div>
               </Title>
             </HomeButton>
           </HomeLink>
@@ -52,8 +66,10 @@ const HomeLink = styled(Link)({
 });
 
 const HomeButtonContainer = styled.div({
+
   display: 'flex',
   flex: 1,
+  justifyContent:"space-between"
 });
 
 const HomeButton = styled.div({

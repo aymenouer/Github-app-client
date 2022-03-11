@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import RepoCard from "../containers/repo-card";
 import { Layout, QueryResult } from "../components";
-import { Button, colors, IconBook, IconView, Select } from "../styles";
+import { Button, colors, IconBook, Select } from "../styles";
 import Box from "@mui/material/Box";
-import { Link } from "@reach/router";
 /** REPOSITORIES gql query to retreive all REPOSITORIES with loadpage */
 export const REPOSITORIES = gql`
-query RepositoriesForHome($loadpage: Int!, $language: String, $page: Int) {
-  repositoriesForHome(loadpage: $loadpage, language: $language, page: $page) {
+query RepositoriesForHome($loadpage: Int!, $language: String) {
+  repositoriesForHome(loadpage: $loadpage, language: $language) {
     id
     name
     owner {
@@ -24,12 +23,12 @@ query RepositoriesForHome($loadpage: Int!, $language: String, $page: Int) {
 }
 `;
 
-const Repositories = () => {
+const Star = () => {
   const [loadpage, setLoadpage] = useState(6);
   const [language, setLanguage] = useState("");
-  const [page] = useState(1);
+
   const { loading, error, data } = useQuery(REPOSITORIES, {
-    variables: { loadpage, language,page },
+    variables: { loadpage, language },
   });
 
   const [repoLiked, setRepoLiked] = useState(
@@ -39,17 +38,9 @@ const Repositories = () => {
     <>
       <Layout grid>
         <Box style={{ marginRight: "20px", display:"flex" ,alignItems:"Center" }} width={800}>
-          <Link to={`/repo`} >
-        <Button
-                icon={<IconView width="20px" />}
-                color={colors.pink.base}
-                size="large"
-                
-                >
-                Method 2 Pagination
-              </Button>
+          
         
-                </Link>
+        
             
         </Box>
         <Select
@@ -70,33 +61,31 @@ const Repositories = () => {
 
         <QueryResult error={error} loading={loading} data={data}>
           {data?.repositoriesForHome?.map((repo, index) => (
+               repoLiked.map((e) => e.id).includes(repo.id) ?
             <RepoCard
               setRepoLiked={setRepoLiked}
               repoLiked={repoLiked}
               key={repo.id}
               repo={repo}
-            />
+            /> : <> </>
           ))}
         </QueryResult>
-
-        <Box style={{  display:"flex" ,alignItems:"Center",justifyContent:"Center" }} width={800}>
+      <Box style={{  display:"flex" ,alignItems:"Center",justifyContent:"Center" }} width={800}>
           
         
-          <Button
-            onClick={() => setLoadpage(loadpage + 6)}
-            icon={<IconBook width="20px" />}
-            color={colors.pink.base}
-            size="large"
-          >
-            Show More
-          </Button>
-              
-            </Box>
-         
-        
+        <Button
+          onClick={() => setLoadpage(loadpage + 6)}
+          icon={<IconBook width="20px" />}
+          color={colors.pink.base}
+          size="large"
+        >
+          Show More
+        </Button>
+            
+          </Box>
       </Layout>
     </>
   );
 };
 
-export default Repositories;
+export default Star;

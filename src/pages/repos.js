@@ -2,32 +2,31 @@ import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import RepoCard from "../containers/repo-card";
 import { Layout, QueryResult } from "../components";
-import { Button, colors, IconBook, IconView, Select } from "../styles";
+import { Button, colors, IconBook, Select } from "../styles";
 import Box from "@mui/material/Box";
-import { Link } from "@reach/router";
 /** REPOSITORIES gql query to retreive all REPOSITORIES with loadpage */
 export const REPOSITORIES = gql`
 query RepositoriesForHome($loadpage: Int!, $language: String, $page: Int) {
-  repositoriesForHome(loadpage: $loadpage, language: $language, page: $page) {
-    id
-    name
-    owner {
+    repositoriesForHome(loadpage: $loadpage, language: $language, page: $page) {
       id
-      login
-      avatar_url
+      name
+      owner {
+        id
+        login
+        avatar_url
+      }
+      html_url
+      description
+      language
+      stargazers_count
     }
-    html_url
-    description
-    language
-    stargazers_count
   }
-}
 `;
 
-const Repositories = () => {
+const Repos = () => {
   const [loadpage, setLoadpage] = useState(6);
   const [language, setLanguage] = useState("");
-  const [page] = useState(1);
+  const [page,setPage] = useState(1);
   const { loading, error, data } = useQuery(REPOSITORIES, {
     variables: { loadpage, language,page },
   });
@@ -39,17 +38,9 @@ const Repositories = () => {
     <>
       <Layout grid>
         <Box style={{ marginRight: "20px", display:"flex" ,alignItems:"Center" }} width={800}>
-          <Link to={`/repo`} >
-        <Button
-                icon={<IconView width="20px" />}
-                color={colors.pink.base}
-                size="large"
-                
-                >
-                Method 2 Pagination
-              </Button>
+          
         
-                </Link>
+        
             
         </Box>
         <Select
@@ -83,7 +74,9 @@ const Repositories = () => {
           
         
           <Button
-            onClick={() => setLoadpage(loadpage + 6)}
+            onClick={() => {
+                    setPage(page+1);
+                }}
             icon={<IconBook width="20px" />}
             color={colors.pink.base}
             size="large"
@@ -99,4 +92,4 @@ const Repositories = () => {
   );
 };
 
-export default Repositories;
+export default Repos;

@@ -69,13 +69,8 @@ const GlobalStyles = () => (
 );
 
 export default GlobalStyles;
-
-export { IconRun } from '@apollo/space-kit/icons/IconRun';
 export { IconView } from '@apollo/space-kit/icons/IconView';
-export { IconTime } from '@apollo/space-kit/icons/IconTime';
 export { IconBook } from '@apollo/space-kit/icons/IconBook';
-export { IconYoutube } from '@apollo/space-kit/icons/IconYoutube';
-export { IconArrowRight } from '@apollo/space-kit/icons/IconArrowRight';
-export { IconDoubleArrowRight } from '@apollo/space-kit/icons/IconDoubleArrowRight';
 export { Button } from '@apollo/space-kit/Button';
 export { Select } from "@apollo/space-kit/Select";
+export { IconStar } from '@apollo/space-kit/icons/IconStar';
