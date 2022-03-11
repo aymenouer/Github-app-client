@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Rating from "@mui/material/Rating";
 
 const RepoCard = ({ setRepoLiked, repoLiked, repo }) => {
-  const { name, html_url, language, owner, description, stargazers_count, id } =
+  const { name, language, owner, description, stargazers_count, id } =
     repo;
   const [rate, setRate] = useState(
     repoLiked.map((e) => e.id).includes(id)

@@ -24,7 +24,7 @@ query RepositoriesForHome($loadpage: Int!, $language: String, $page: Int) {
 `;
 
 const Repos = () => {
-  const [loadpage, setLoadpage] = useState(6);
+  const [loadpage] = useState(6);
   const [language, setLanguage] = useState("");
   const [page,setPage] = useState(1);
   const { loading, error, data } = useQuery(REPOSITORIES, {
