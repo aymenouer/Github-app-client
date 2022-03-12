@@ -51,12 +51,15 @@ const Star = () => {
           )}
         >
           <option>C</option>
-
+          <option>Solidity</option>
           <option>PHP</option>
           <option>R</option>
           <option>SQL</option>
           <option>Java</option>
           <option>JavaScript</option>
+          <option>Python</option>
+          <option>Rust</option>
+          <option>HTML</option>
         </Select>
 
         <QueryResult error={error} loading={loading} data={data}>

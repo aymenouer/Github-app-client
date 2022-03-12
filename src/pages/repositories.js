@@ -39,7 +39,7 @@ const Repositories = () => {
     <>
       <Layout grid>
         <Box style={{ marginRight: "20px", display:"flex" ,alignItems:"Center" }} width={800}>
-          <Link to={`/repo`} >
+          <Link to={`/repo`} style={{ textDecoration:"none" }} >
         <Button
                 icon={<IconView width="20px" />}
                 color={colors.pink.base}
@@ -60,12 +60,15 @@ const Repositories = () => {
           )}
         >
           <option>C</option>
-
+          <option>Solidity</option>
           <option>PHP</option>
           <option>R</option>
           <option>SQL</option>
           <option>Java</option>
           <option>JavaScript</option>
+          <option>Python</option>
+          <option>Rust</option>
+          <option>HTML</option>
         </Select>
 
         <QueryResult error={error} loading={loading} data={data}>
