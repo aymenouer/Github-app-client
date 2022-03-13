@@ -4,15 +4,18 @@ import { colors, mq } from "../styles";
 import logo from "../assets/repo.png";
 import { toast } from "react-toastify";
 import Rating from "@mui/material/Rating";
+import useRepo from "./../store/useRepo";
+import { navigate } from '@reach/router';
 
 const RepoCard = ({ setRepoLiked, repoLiked, repo }) => {
-  const { name, language, owner, description, stargazers_count, id } =
-    repo;
+  const { name, language, owner, description,html_url, stargazers_count, id } = repo;
   const [rate, setRate] = useState(
     repoLiked.map((e) => e.id).includes(id)
       ? repoLiked.find((element) => element.id === id).rate
       : stargazers_count
   );
+  const { setid,setname, setid_owner, setlogin,setavatar_url,sethtml_url,setdescription,setlanguage,setstargazers_count } = useRepo();
+  
   const ratingChanged = (newrate, id) => {
     let array = repoLiked;
 
@@ -22,17 +25,28 @@ const RepoCard = ({ setRepoLiked, repoLiked, repo }) => {
     localStorage.setItem("Rated", JSON.stringify(repoLiked));
     toast.success("Rated");
   };
-
+  const ShowDetails = () => {
+    setid(id);
+    setname(name);
+    setid_owner(owner.id);
+    setlogin(owner.login);
+    setavatar_url(owner.avatar_url);
+    sethtml_url(html_url);
+    setdescription(description);
+    setlanguage(language);
+    setstargazers_count(rate);
+    navigate("/repo-detail")
+  };
   return (
     <CardContainer>
       <CardContent>
-        <CardImageContainer>
+        <CardImageContainer onClick={ShowDetails} >
           <CardImage src={logo} alt={name} />
         </CardImageContainer>
         <CardBody>
           <CardTitle>{name || ""}</CardTitle>
           <CardDescription>{description || "No description"}</CardDescription>
-          <CardLanguage>Language : {language  || "No language"}</CardLanguage>
+          <CardLanguage>Language : {language || "No language"}</CardLanguage>
           <CardFooter>
             <OwnerImage src={owner.avatar_url} alt={owner.login} />
             <OwnerAndRepo>

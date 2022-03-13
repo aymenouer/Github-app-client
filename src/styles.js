@@ -74,3 +74,4 @@ export { IconBook } from '@apollo/space-kit/icons/IconBook';
 export { Button } from '@apollo/space-kit/Button';
 export { Select } from "@apollo/space-kit/Select";
 export { IconStar } from '@apollo/space-kit/icons/IconStar';
+export { IconRun } from '@apollo/space-kit/icons/IconRun';

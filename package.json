@@ -21,7 +21,8 @@
     "react-range": "^1.8.12",
     "react-scripts": "5.0.0",
     "react-toastify": "^8.2.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^3.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
