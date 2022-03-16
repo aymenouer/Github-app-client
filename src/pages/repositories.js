@@ -39,7 +39,7 @@ const Repositories = () => {
     <>
       <Layout grid>
         <Box style={{ marginRight: "20px", display:"flex" ,alignItems:"Center" }} width={800}>
-          <Link to={`/repo`} style={{ textDecoration:"none" }} >
+          <Link to={`/repositories`} style={{ textDecoration:"none" }} >
         <Button
                 icon={<IconView width="20px" />}
                 color={colors.pink.base}
