@@ -7,7 +7,7 @@
 
 :star: Star on GitHub — it motivates Me a lot!
 
-[GitHub App](https://thunderous-sundae-a37e28.netlify.app/) is  application for discovering trending repositories on GitHub of last week Via [API](https://api.github.com/search/repositories).
+[GitHub App](https://jolly-moxie-a413b3.netlify.app/) is  application for discovering trending repositories on GitHub of last week Via [API](https://api.github.com/search/repositories).
 
 ---
 <h3>Technologies:</h3>
@@ -19,7 +19,7 @@
 | --- |
 |![GitHub-app](https://user-images.githubusercontent.com/49178153/160432857-811a894c-8d66-47ba-8ae2-d54c9173dc4c.png)
 
-## [Demo 💥](https://thunderous-sundae-a37e28.netlify.app/)
+## [Demo 💥](https://jolly-moxie-a413b3.netlify.app/)
 
 ## Features
 
