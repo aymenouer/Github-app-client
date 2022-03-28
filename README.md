@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Team App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Code Size](https://img.shields.io/github/languages/code-size/aymenouer/team-app-client)](https://img.shields.io/github/languages/top/aymenouer/team-app-client)
+[![Language](https://img.shields.io/github/languages/top/aymenouer/team-app-client)](https://img.shields.io/github/languages/top/aymenouer/team-app-client)
+[![Stars](https://img.shields.io/github/stars/aymenouer/team-app-client?style=social)](https://img.shields.io/github/stars/aymenouer/team-app-client?style=social)
 
-## Available Scripts
 
-In the project directory, you can run:
+:star: Star on GitHub — it motivates Me a lot!
 
-### `npm start`
+[GitHub App](https://thunderous-sundae-a37e28.netlify.app/) is  application for discovering trending repositories on GitHub of last week Via [API](https://api.github.com/search/repositories).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+<h3>Technologies:</h3>
+<a href="https://nodejs.dev/"><img src="https://img.shields.io/badge/-NodeJS-313131?style=flat-square&labelColor=313131&logo=node.js&logoColor=white&color=313131"><a href="https://reactjs.org/"><img src="https://img.shields.io/badge/-React-313131?style=flat-square&labelColor=313131&logo=react&logoColor=white&color=313131"></img></a><a href="https://www.w3schools.com/html/html_intro.asp"><img src="https://img.shields.io/badge/-HTML5-313131?style=flat-square&labelColor=313131&logo=html5&logoColor=white&color=313131"></img></a><a href="https://www.w3schools.com/css/css_intro.asp"><img src="https://img.shields.io/badge/-CSS3-313131?style=flat-square&labelColor=313131&logo=css3&logoColor=white&color=313131"></img></a><a href="https://www.javascript.com"><img src="https://img.shields.io/badge/-Javascript-313131?style=flat-square&labelColor=313131&logo=javascript&logoColor=white&color=313131"></img></a><a href="https://graphql.org"><img src="https://img.shields.io/badge/-GraphQL-313131?style=flat-square&labelColor=313131&logo=graphql&logoColor=white&color=313131"></img></a></a><a href="https://www.apollographql.com/"><img src="https://img.shields.io/badge/-Apollo-313131?style=flat-square&labelColor=313131&logo=apollographql&logoColor=white&color=313131"></img></a><a href="https://code.visualstudio.com"><img src="https://img.shields.io/badge/-Visual Studio Code-313131?style=flat-square&labelColor=313131&logo=visual-studio-code&logoColor=white&color=313131"></img></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- App DESGIN  -->
+## APP DESGIN 
+|APP |
+| --- |
+|![GitHub-app](https://user-images.githubusercontent.com/49178153/160432857-811a894c-8d66-47ba-8ae2-d54c9173dc4c.png)
+| 
 
-### `npm test`
+## [Demo 💥](https://thunderous-sundae-a37e28.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- A list of the most popular **repositories** of the last week should be displayed and the user should be able to star them.🌟
+- The starred **repositories** is visible in a different tab.
+- Some basic info about the repo is displayed, such as: repo name, link to GitHub, description and number of stars.
+- 2 Types of Pagination (the list is huge).
+- Lazy loading of the cards (load the cards after the app has initiated)
+- The starring won’t be sent back to GitHub’s servers but just stored in localStorage.
+- A programming language filter
+- A Notification when you rate a repo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+_Easily set up a local development environment!_
 
-### `npm run eject`
+Run the server on [localhost:4000](http://localhost:4000)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- clone
+- `npm install`
+- `npm start`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You can find the server Repository here : [Server 💻](https://github.com/aymenouer/Github-app-server)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+**Start coding!** 🎉
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br/>
+<img src="https://user-images.githubusercontent.com/49178153/160434181-7762a71b-33b7-4e0a-b853-a7377ccba9f2.png" alt="carbon" width="80%" height="80%"/>
+<br/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Feedback 
+Any questions or suggestions?
 
-### Code Splitting
+You are welcome to discuss it on:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aymen-ouerghi-249632146/)
 
-### Analyzing the Bundle Size
+<br/>
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
