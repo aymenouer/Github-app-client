@@ -15,10 +15,9 @@
 
 <!-- App DESGIN  -->
 ## APP DESGIN 
-|APP |
+| Github APP |
 | --- |
 |![GitHub-app](https://user-images.githubusercontent.com/49178153/160432857-811a894c-8d66-47ba-8ae2-d54c9173dc4c.png)
-| 
 
 ## [Demo 💥](https://thunderous-sundae-a37e28.netlify.app/)
 
